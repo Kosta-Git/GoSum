@@ -57,7 +57,7 @@ func ParseArguments() Arguments {
 
 			var buffer []string
 			for _, f := range files {
-				if !f.IsDir() {
+				if f.Mode().IsRegular() {
 					fullPath := strings.TrimSuffix(file, "*") + f.Name()
 
 					buffer = append(buffer, fullPath)
